@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .login-box {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            /* Add border-radius */
+            padding: 20px;
+            text-align: center;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            /* Add border-radius */
+        }
+        
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            /* Add border-radius */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h1> Login page</h1>
+
+        <form method="POST" action="">
+            {% csrf_token %} {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+            {% endif %}
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name">
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+            </div>
+
+            <p>Already have account <a href="/register">Register</a></p>
+
+            <div>
+
+                <button type="submit" class="btn btn-primary">submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+</body>
+
+</html>
